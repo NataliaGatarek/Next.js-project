@@ -1,4 +1,5 @@
 // import { useRouter } from 'next/router';
+import Head from "next/head";
 import { getEventById, getFeaturedEvents } from "../../helpers/api-util";
 import EventSummary from "../../components/event-detail/event-summary";
 import EventLogistics from "../../components/event-detail/event-logistics";
@@ -15,6 +16,10 @@ function EventDetail(props) {
 
     return (
         <>
+             <Head>
+                <title>{event.title}</title>
+                <meta name="description" content={event.description}/>
+      </Head>
             <EventSummary title={event.title}/>
             <EventLogistics date={event.date} address={event.location} image={event.image} imageAlt={event.title}/>
             <EventContent>
